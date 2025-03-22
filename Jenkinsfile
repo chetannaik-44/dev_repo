@@ -2,11 +2,11 @@
 pipeline {
     agent any
 
-    stages {
-
-        parameters {
+    parameters {
             booleanParam(name: 'build_image', defaulrvalue: true, description: 'chech to build the docker image')
         }
+
+    stages {
 
         stage ('Git Checkout') {
             steps {
