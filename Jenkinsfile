@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     parameters {
-            booleanParam(name: 'build_image', defaulrvalue: true, description: 'chech to build the docker image')
+            booleanParam(name: 'build_image', defaultValue: true, description: 'chech to build the docker image')
         }
 
     stages {
