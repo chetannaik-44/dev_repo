@@ -1,14 +1,22 @@
-FROM python:3.9
+# Use Python runtime (from parent Python image):
+    FROM python:3.9
 
-ENV http_proxy http://host.docker.internal:3128
-ENV https_proxy http://host.docker.internal:3128
-#ENV FLASK_ENV=development
-EXPOSE 5000
-
-WORKDIR /app
-
-COPY requirements.txt /app
-RUN pip3 install -r requirements.txt
-
-COPY app.py /app
-CMD python app.py
+    # Set working directory:
+    
+    WORKDIR /app
+    
+    # Copy current directory contents into the container at WORKDIR:
+    ADD ./src_data /app
+    
+    # Install any needed packages specified in requirements.txt:
+    
+    RUN pip3 install -r requirements.txt
+    
+    # Output from python script app.py
+    
+    EXPOSE 5000
+    # Run app.py when the container launches
+    
+    CMD ["python", "app.py"]
+    
+    
